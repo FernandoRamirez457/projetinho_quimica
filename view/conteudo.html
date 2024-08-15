@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo da matéria</title>
+    <link rel="stylesheet" href="./css/assets/main.css">
+    <link rel="stylesheet" href="./css/conteudo.css">
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header>
+        <div class="menu-icon" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </div>
+        <div class="navbar-content">
+            <a href="./index.html"><img src="./img/quimica.png" alt=""></a>
+
+            <div class="functions">
+                <div class="search-container">
+                    <label for="search-input" class="search-icon">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #00ab25;"></i>
+                    </label>
+                    <input type="text" class="search-input" id="search-input" required />
+                </div>
+
+                <a href="./login.html">
+                    <div class="profile">
+                        <i class="fa-solid fa-user" style="color: #00ab25;"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar" id="sidebar">
+        <p class="close-btn" onclick="toggleSidebar()">×</p>
+        <a href="./index.html">
+            <div class="logotipo"><img src="./img/quimica.png" alt=""></div>
+        </a>
+        <div class="sidebar-content">
+            <a href="./index.html" class="sidebar-link active">
+                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <i class="fa-solid fa-gamepad" style="color: #ffffff;"></i>
+                <span>Jogo: Clean House</span>
+            </a>
+            <a href="./contribuidor.html" class="sidebar-link">
+                <i class="fa-solid fa-handshake-angle" style="color: #ffffff;"></i>
+                <span>Contribua</span>
+            </a>
+
+            <div class="conteudos">Acesse Também
+                <div class="triangulo"></div>
+            </div>
+
+            <a href="./subpaginas/dicas_web.html" class="sidebar-link">
+                <i class="fa-solid fa-lightbulb" style="color: #ffffff;"></i>
+                <span>Dicas da Web</span>
+            </a>
+            <a href="./subpaginas/desvendando_mitos.html" class="sidebar-link">
+                <i class="fa-solid fa-magnifying-glass-plus" style="color: #ffffff;"></i>
+                <span>Desvendando Mitos</span>
+            </a>
+            <a href="./subpaginas/produtos_limpeza.html" class="sidebar-link">
+                <i class="fa-solid fa-soap" style="color: #ffffff;"></i>
+                <span>Produtos de Limpeza</span>
+            </a>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!--CONTEUDO PRINCIPAL-->
+    <main>
+        <div class="banner-post">
+            <img src="./img/misturinhas.png" alt="Banner da matéria" class="banner-img">
+        </div>
+
+        <div class="container-conteudo">
+            <h2 class="titulo-principal">Título Principal</h1>
+
+                <p class="intro texto">
+                    É comum encontrar dicas de misturas de produtos de limpeza na internet com promessas de resultados
+                    milagrosos na hora da faxina. 
+                    O problema é que essas combinações podem causar o efeito oposto, cortando a eficácia dos produtos
+                    envolvidos, ou pior: podem causar sérios danos à saúde.
+                    “As empresas fazem estudos dos produtos para não fazer mal a pessoas e a pets, por isso não é legal
+                    misturar”, explica Flávia Taulois, sócia do Ateliê Casa, empresa especialista em higienização.
+                </p>
+
+                <h3>Sub-título</h3>
+
+                <p class="conteudo texto">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex. Sed consequat massa vitae ex volutpat, sed scelerisque ipsum aliquam.
+                    Curabitur varius justo non orci viverra, et bibendum dui finibus.
+                    Integer a turpis nec neque ullamcorper consequat. Proin et magna quis urna tristique luctus.
+                    Vivamus sagittis interdum justo, ut condimentum leo fermentum ut. Morbi auctor lectus sit amet
+                    libero bibendum, sit amet elementum erat fringilla.
+                    <br><br>
+                    Sed laoreet, orci vel tempor consequat, turpis felis accumsan sapien, ac malesuada enim lectus id
+                    est.
+                    Vivamus vehicula libero ut magna pretium, nec viverra arcu fermentum. Aliquam erat volutpat.
+                    Donec interdum leo eget fringilla pellentesque. Sed vulputate nec leo ut condimentum.
+                    Integer vitae purus id justo eleifend porttitor. Curabitur auctor nisl orci, et auctor lacus laoreet
+                    at.
+                </p>
+
+                <h3>Sub-título</h3>
+
+                <p class="conteudo texto">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex. Sed consequat massa vitae ex volutpat, sed scelerisque ipsum aliquam.
+                    Curabitur varius justo non orci viverra, et bibendum dui finibus.
+                    Integer a turpis nec neque ullamcorper consequat. Proin et magna quis urna tristique luctus.
+                    Vivamus sagittis interdum justo, ut condimentum leo fermentum ut. Morbi auctor lectus sit amet
+                    libero bibendum, sit amet elementum erat fringilla.
+                    <br><br>
+                    Sed laoreet, orci vel tempor consequat, turpis felis accumsan sapien, ac malesuada enim lectus id
+                    est.
+                    Vivamus vehicula libero ut magna pretium, nec viverra arcu fermentum. Aliquam erat volutpat.
+                    Donec interdum leo eget fringilla pellentesque. Sed vulputate nec leo ut condimentum.
+                    Integer vitae purus id justo eleifend porttitor. Curabitur auctor nisl orci, et auctor lacus laoreet
+                    at.
+                </p>
+        </div>
+
+        <hr style="max-width: 1400px; margin: 30px auto;">
+        <br><br>
+
+
+        <h3 class="title_postagens">Outras Postagens</h3>
+
+        <div class="container-postagens">
+            <div class="card">
+                <img src="./img/img_postagem.png" alt="Imagem do Card">
+                <div class="card-conteudo">
+                    <h2 class="card-titulo">Alerta Vermelho: O Perigo Oculto nos Produtos de Limpeza Mais Comuns
+                    </h2>
+                    <p class="card-descricao">Estudos recentes revelam que ingredientes tóxicos em produtos de
+                        limpeza cotidianos podem representar sérios riscos à saúde, exigindo maior
+                        conscientização dos consumidores.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./img/img_postagem.png" alt="Imagem do Card">
+                <div class="card-conteudo">
+                    <h2 class="card-titulo">Alerta Vermelho: O Perigo Oculto nos Produtos de Limpeza Mais Comuns
+                    </h2>
+                    <p class="card-descricao">Estudos recentes revelam que ingredientes tóxicos em produtos de
+                        limpeza cotidianos podem representar sérios riscos à saúde, exigindo maior
+                        conscientização dos consumidores.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./img/img_postagem.png" alt="Imagem do Card">
+                <div class="card-conteudo">
+                    <h2 class="card-titulo">Alerta Vermelho: O Perigo Oculto nos Produtos de Limpeza Mais Comuns
+                    </h2>
+                    <p class="card-descricao">Estudos recentes revelam que ingredientes tóxicos em produtos de
+                        limpeza cotidianos podem representar sérios riscos à saúde, exigindo maior
+                        conscientização dos consumidores.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="./img/img_postagem.png" alt="Imagem do Card">
+                <div class="card-conteudo">
+                    <h2 class="card-titulo">Alerta Vermelho: O Perigo Oculto nos Produtos de Limpeza Mais Comuns
+                    </h2>
+                    <p class="card-descricao">Estudos recentes revelam que ingredientes tóxicos em produtos de
+                        limpeza cotidianos podem representar sérios riscos à saúde, exigindo maior
+                        conscientização dos consumidores.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/interactions/navbar.js"></script>
+    <script type="module" src="./js/interactions/page_constructor.js"></script>
+
+</body>
+
+</html>

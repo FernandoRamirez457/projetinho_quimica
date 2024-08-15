@@ -1,0 +1,25 @@
+.banner_contributor {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url(https://static.vecteezy.com/ti/vetor-gratis/p1/24813379-verde-gradiente-fundo-com-plexo-linhas-rede-conexao-ponto-abstrato-cientifico-papel-de-parede-geometrico-fundo-com-abstrato-malha-molecular-quimica-ilustracao-para-laboratorio-vetor.jpg)
+      no-repeat top center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+  gap: 10px;
+}
+
+.banner_contributor h1 {
+  text-align: center;
+  font-size: 54px;
+  color: white;
+}
+
+.banner_contributor p {
+  text-align: center;
+  padding: 0 100px;
+  color: white;
+}

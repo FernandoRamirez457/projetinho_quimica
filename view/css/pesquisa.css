@@ -1,0 +1,76 @@
+@import url(./components/card_row.css);
+@import url(./components/filter_rooms.css);
+
+.filter-rooms {
+  margin: 0 auto;
+}
+
+.search-container-page {
+  position: relative;
+  display: flex;
+}
+
+.search-input-page {
+  flex-wrap: wrap;
+  flex: 1;
+  max-width: 900px;
+  width: 800px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding-left: 40px;
+  transition: width 0.7s ease;
+}
+
+.container-result-search {
+  max-width: 1400px;
+  height: auto;
+  margin: 50px auto;
+}
+
+.container-result-search .card-row-container {
+  width: 100%;
+}
+
+.container-result-search .alertSearch {
+  text-align: center;
+  margin: 50px;
+  display: none;
+}
+
+.container-result-search .numberpage {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-result-search .numberpage .number {
+  font-size: 20px;
+  color: rgb(70, 70, 70);
+}
+
+.container-result-search .numberpage #prev-page,
+.container-result-search .numberpage #next-page {
+  color: gray;
+  padding: 5px 15px;
+}
+
+@media (max-width: 500px) {
+  .navbar-content img {
+    display: none;
+  }
+
+  .search-container-page {
+    position: relative;
+    display: flex;
+  }
+
+  .search-input-page {
+    flex-wrap: wrap;
+    flex: 1;
+    width: auto;
+  }
+}

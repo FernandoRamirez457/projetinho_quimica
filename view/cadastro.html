@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="./css/assets/main.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-back">
+            <h2>Bem vindo de volta!</h2>
+            <p>Para se manter conectado conosco, faça login com suas informações pessoais</p>
+            <a href="login.html" class="button">LOGIN</a>
+        </div>
+        <div class="create-account">
+            <h2>Criar uma conta</h2>
+            <form action="http://localhost/projeto_quimica/controller/controller_cad.php" method="post">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="text" name="data_nascimento" placeholder="Data de Nascimento" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>     
+                <input type="submit" class="button" value="CADASTRAR">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

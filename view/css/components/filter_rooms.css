@@ -1,0 +1,42 @@
+.filter-rooms {
+  height: auto;
+  max-width: 1400px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  overflow-x: auto;
+}
+
+.filter-rooms .room {
+  max-width: 240px;
+  width: 240px;
+  padding: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  border-radius: 50px;
+  border: solid 3px rgb(194, 194, 194);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: rgb(41, 41, 41);
+}
+
+.filter-rooms .room i {
+  font-size: 17px;
+}
+
+.filter-rooms .room:hover {
+  border-color: #00cd18;
+  background-color: #8ff39b;
+}
+
+@media (max-width: 900px) {
+  .filter-rooms .room {
+    min-width: 160px;
+    padding: 10px;
+    font-size: 13px;
+  }
+}
