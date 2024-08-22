@@ -1,6 +1,6 @@
 import { cardRow } from "../components/cardRow.js";
 
-const url = "http://localhost/projeto_quimica/controller/controller_posts.php";
+const url = "http://localhost/projetinho_quimica/controller/controller_posts.php";
 
 const baseSearchNews = document.querySelector(".result-search");
 

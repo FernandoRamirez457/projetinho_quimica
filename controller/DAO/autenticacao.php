@@ -7,8 +7,7 @@ function Autenticar($email, $senha)
 
     $conexao = conectar();
 
-    /*Continue a partir daqui */
-    // Preparar a consulta SQL com UNION para ambas as tabelas
+    //Preparação da consulta
     $sql = "SELECT id_usuario AS id, nome_user AS nome, email_user AS email, senha_user AS senha
     FROM usuario
     WHERE email_user = ?";
@@ -47,7 +46,8 @@ function Autenticar($email, $senha)
         session_destroy();
         return "Erro";
     }
-
+    //Fecha a conexão
     fecharConexao($conexao);
+    //Fecha a consulta
     $stmt->close();
 }

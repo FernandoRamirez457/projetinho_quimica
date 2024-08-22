@@ -21,7 +21,7 @@ switch ($req["REQUEST_METHOD"]) {
 
         // Criação da resposta
         if($resultado == "Sucesso"){
-            $status = criarResposta("200","Sucesso ao Incluir!");
+            header('Location: http://localhost/projetinho_quimica/view/login.html');
         } else {
             $status = criarResposta("400","Falha ao Incluir!");
         }

@@ -1,4 +1,5 @@
 <?php
+
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
@@ -24,7 +25,7 @@ switch ($req["REQUEST_METHOD"]) {
             header('Location: ../view/perfilAdm.php');
         } else {
             // Volta para a página de login
-            header('Location: http://127.0.0.1:5500/view/login.html');
+            header('Location: http://localhost/projetinho_quimica/view/login.html');
         }
         // // Retorno da resposta
          echo json_encode($status);

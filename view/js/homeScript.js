@@ -2,7 +2,7 @@ import { cardColumn } from "./components/cardColumn.js";
 import { cardRow } from "./components/cardRow.js";
 
 // URL da API para fetch
-const url = "http://localhost/projeto_quimica/controller/controller_posts.php";
+const url = "http://localhost/projetinho_quimica/controller/controller_posts.php";
 let postagens = [];
 
 let dataAtual;

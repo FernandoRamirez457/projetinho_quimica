@@ -7,7 +7,7 @@ if (!id) {
     console.error('ID não encontrado na URL.');
 }
 
-var url = 'http://localhost/projeto_quimica/controller/controller_posts.php';
+var url = 'http://localhost/projetinho_quimica/controller/controller_posts.php';
 
 //Fetch do JSON 
 fetch(url)
