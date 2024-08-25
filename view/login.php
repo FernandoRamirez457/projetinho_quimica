@@ -33,7 +33,7 @@ include '../controller/DAO/conexao.php';
 include '../model/Usuario.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conexao = conectar();
+    $conexao = Conectar();
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
     $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
@@ -52,6 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_stmt_close($stmt);
-    fecharConexao($conexao);
+    Desconectar($conexao);
 }
 ?>

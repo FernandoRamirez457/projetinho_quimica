@@ -5,7 +5,7 @@ function Autenticar($email, $senha)
 
     require 'conexao.php';
 
-    $conexao = conectar();
+    $conexao = Conectar();
 
     //Preparação da consulta
     $sql = "SELECT id_usuario AS id, nome_user AS nome, email_user AS email, senha_user AS senha
@@ -33,21 +33,29 @@ function Autenticar($email, $senha)
             $_SESSION['id'] = $id;
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email_db;
+
+            Desconectar($conexao);
+            $stmt->close();
+
             return "Sucesso";
         } else {
             // Senha inválida
             session_unset();
             session_destroy();
+
+            Desconectar($conexao);
+            $stmt->close();
+
             return "Erro";
         }
     }else{
         // Nenhum registro encontrado
         session_unset();
         session_destroy();
+
+        Desconectar($conexao);
+        $stmt->close();
+
         return "Erro";
     }
-    //Fecha a conexão
-    fecharConexao($conexao);
-    //Fecha a consulta
-    $stmt->close();
 }

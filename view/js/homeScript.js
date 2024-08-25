@@ -2,7 +2,7 @@ import { cardColumn } from "./components/cardColumn.js";
 import { cardRow } from "./components/cardRow.js";
 
 // URL da API para fetch
-const url = "http://localhost/projetinho_quimica/controller/controller_posts.php";
+const url = "../controller/controller_posts.php";
 let postagens = [];
 
 let dataAtual;
@@ -55,23 +55,13 @@ btnFilter.forEach((btn) => {
     const filterId = parseInt(btn.id);
 
     if (btn.classList.contains("active")) {
-      btn.style.backgroundColor = "white";
-      btn.style.borderColor = "rgb(194, 194, 194)";
       btn.classList.remove("active");
-
-      // Remover o ID da lista de filtros ativos
       activeFilters = activeFilters.filter((id) => id !== filterId);
-
-      fetchHome();
-    } else {
-      btn.style.backgroundColor = "#8ff39b";
-      btn.style.borderColor = "#00cd18";
+  } else {
       btn.classList.add("active");
-
-      // Adicionar o ID à lista de filtros ativos
       activeFilters.push(filterId);
-      fetchHome();
-    }
+  }
+  fetchHome();
   });
 });
 

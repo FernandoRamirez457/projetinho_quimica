@@ -49,6 +49,11 @@
   padding: 5px 15px;
 }
 
+.emphasis-base .numberpage #prev-page:hover,
+.emphasis-base .numberpage #next-page:hover {
+  cursor: pointer;
+}
+
 .base-contributor {
   max-width: 1300px;
   height: 500px;

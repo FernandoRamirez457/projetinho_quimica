@@ -34,7 +34,7 @@ include '../controller/DAO/conexao.php';
 include '../model/Usuario.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conexao = conectar();
+    $conexao = Conectar();
     $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
     $dat = mysqli_real_escape_string($conexao, $_POST['dat']);
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
@@ -55,6 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_stmt_close($stmt);
-    fecharConexao($conexao);
+    Desconectar($conexao);
 }
 ?>

@@ -22,15 +22,19 @@
   border: solid 3px rgb(194, 194, 194);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   color: rgb(41, 41, 41);
+  margin: 10px;
+  transition: border-color 0.5s, background-color 0.2s;
 }
 
-.filter-rooms .room i {
-  font-size: 17px;
+.filter-rooms .room.active {
+  border-color: #00cd18;
+  background-color: #8ff39b;
 }
 
 .filter-rooms .room:hover {
   border-color: #00cd18;
   background-color: #8ff39b;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {

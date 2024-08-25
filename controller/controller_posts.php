@@ -3,8 +3,8 @@ header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
 
-require './DAO/insert_posts.php';
-require './utils.php';
+require __DIR__.'/DAO/insert_posts.php';
+require __DIR__.'/utils.php';
 
 
 // Recebe o tipo da requisição
@@ -41,4 +41,3 @@ switch($req["REQUEST_METHOD"]){
         }
         break;
 }
-?>

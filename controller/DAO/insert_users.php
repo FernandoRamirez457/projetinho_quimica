@@ -2,7 +2,7 @@
     function Insert_Users($newUser){
         require 'conexao.php';
 
-        $conexao = conectar();
+        $conexao = Conectar();
         
         $nome = $newUser->nome;
         $email = $newUser->email;
@@ -21,6 +21,6 @@
         }
         //Fechando a conexão e a consulta
         $stmt->close();
-        fecharConexao($conexao);
+        Desconectar($conexao);
     }
 ?>

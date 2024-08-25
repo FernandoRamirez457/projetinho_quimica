@@ -17,6 +17,7 @@
   overflow: hidden;
 }
 
+
 .container-carrossel .slide-container .slide::before {
   content: "";
   position: absolute;

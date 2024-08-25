@@ -9,6 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  cursor: pointer;
 }
 
 .card-row-container:hover {

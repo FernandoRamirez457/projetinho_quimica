@@ -67,7 +67,7 @@
         }
 
         //Criando a conexão
-        $conexao = conectar();
+        $conexao = Conectar();
 
         //Caso ache os 2 ids necessários
         if($id_categoria && $id_comodo !== null){
@@ -88,12 +88,12 @@
             //Fechando a consulta
             $stmt->close();
             //Fechando a conexão
-            fecharConexao($conexao);
+            Desconectar($conexao);
         }
     };
     function Fetch_All_Posts() {
         require 'conexao.php';
-        $conexao = conectar();
+        $conexao = Conectar();
     
         // Monta a consulta SQL usando o valor do input diretamente
         $query = "SELECT * FROM postagem";
@@ -110,7 +110,7 @@
         
         // Fecha a consulta e a conexão
         $stmt->close();
-        fecharConexao($conexao);
+        Desconectar($conexao);
         
         return json_encode($data);
     }
