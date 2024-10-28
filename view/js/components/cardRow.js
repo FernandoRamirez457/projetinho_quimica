@@ -70,7 +70,7 @@ export function cardRow(data) {
     //CONTENT
     const text = document.createElement('p');
     text.classList.add('text');
-    text.textContent = data.descricao
+    text.innerHTML = data.descricao;
     cardContent.appendChild(text);
 
     const btnView = document.createElement('a');

@@ -18,8 +18,10 @@ function show_post(post) {
 function atualizarElemento(seletor, valor) {
     const elemento = document.querySelector(seletor);
     if (elemento) {
-        elemento.textContent = valor;
+        // Usar innerHTML para interpretar as tags HTML embutidas
+        elemento.innerHTML = valor;
     }
+    console.log(elemento);
 }
 
 export default show_post;

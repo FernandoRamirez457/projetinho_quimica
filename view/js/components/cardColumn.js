@@ -71,7 +71,7 @@ export function cardColumn(data) {
 
   const text = document.createElement("p");
   text.classList.add("text");
-  text.textContent = data.descricao;
+  text.innerHTML = data.descricao;
 
   const btnView = document.createElement("a");
   btnView.classList.add("btn-view");

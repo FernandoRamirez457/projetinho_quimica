@@ -26,7 +26,7 @@ function fetchHome() {
       postagens = dataAtual.map((postagem) => ({
         id: postagem.id_postagem,
         titulo: postagem.nome_produto,
-        descricao: postagem.descricao,
+        descricao: postagem.introducao,
         data_publicacao:
           postagem.data_publicacao || new Date().toISOString().split("T")[0], // Data fictícia se não disponível
         categoria: postagem.id_categoria,
