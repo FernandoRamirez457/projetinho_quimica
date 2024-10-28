@@ -1,3 +1,4 @@
+import increment_view from "./increment_view.js";
 import show_post from "./show_post.js";
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -7,7 +8,7 @@ if (!id) {
     console.error('ID não encontrado na URL.');
 }
 
-var url = 'http://localhost/projetinho_quimica/controller/controller_posts.php';
+var url = '../controller/controller_posts.php';
 
 //Fetch do JSON 
 fetch(url)
@@ -26,6 +27,7 @@ fetch(url)
     }
 
     show_post(postagem);
+    increment_view(id);
 
   })
   .catch(error => {

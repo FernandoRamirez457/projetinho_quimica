@@ -1,6 +1,4 @@
 function show_post(post) {
-    console.log(post);
-
     // Atualizar o título da página
     document.title = post.nome_produto;
 
@@ -21,7 +19,6 @@ function atualizarElemento(seletor, valor) {
         // Usar innerHTML para interpretar as tags HTML embutidas
         elemento.innerHTML = valor;
     }
-    console.log(elemento);
 }
 
 export default show_post;
