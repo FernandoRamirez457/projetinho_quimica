@@ -7,27 +7,26 @@ function Autenticar($email, $senha)
 
     $conexao = Conectar();
 
-    //Preparação da consulta
+    // Preparação da primeira consulta na tabela usuario
     $sql = "SELECT id_usuario AS id, nome_user AS nome, email_user AS email, senha_user AS senha
-    FROM usuario
-    WHERE email_user = ?";
+            FROM usuario
+            WHERE email_user = ?";
 
     $stmt = $conexao->prepare($sql);
     if (!$stmt) {
         return "Erro na preparação da consulta: " . $conexao->error;
     }
 
-    //Procura o email na base de dados
-    $stmt->bind_param('s',$email);
+    // Procura o email na tabela usuario
+    $stmt->bind_param('s', $email);
     $stmt->execute();
     $stmt->store_result();
 
-    //Se achar um email correspondente executa o if abaixo
-    if($stmt->num_rows > 0){
+    if ($stmt->num_rows > 0) {
+        // Se o email for encontrado na tabela usuario
         $stmt->bind_result($id, $nome, $email_db, $senha_db);
         $stmt->fetch();
 
-        // Verificar a senha
         if (password_verify($senha, $senha_db)) {
             // Senha válida
             $_SESSION['id_user'] = $id;
@@ -38,24 +37,47 @@ function Autenticar($email, $senha)
             $stmt->close();
 
             return "Sucesso";
-        } else {
-            // Senha inválida
-            session_unset();
-            session_destroy();
-
-            Desconectar($conexao);
-            $stmt->close();
-
-            return "Erro";
         }
-    }else{
-        // Nenhum registro encontrado
-        session_unset();
-        session_destroy();
+    } else {
+        // Se o email não for encontrado na tabela usuario, procura na tabela contribuidor
+        $sql = "SELECT id_contribuidor AS id, nome_contribuidor AS nome, email_contribuidor AS email, senha_contribuidor AS senha
+                FROM contribuidor
+                WHERE email_contribuidor = ?";
 
-        Desconectar($conexao);
-        $stmt->close();
+        $stmt = $conexao->prepare($sql);
+        if (!$stmt) {
+            return "Erro na preparação da consulta: " . $conexao->error;
+        }
 
-        return "Erro";
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            // Se o email for encontrado na tabela contribuidor
+            $stmt->bind_result($id, $nome, $email_db, $senha_db);
+            $stmt->fetch();
+
+            if (password_verify($senha, $senha_db)) {
+                // Senha válida
+                $_SESSION['id_contribuidor'] = $id;
+                $_SESSION['nome_contribuidor'] = $nome;
+                $_SESSION['email_contribuidor'] = $email_db;
+
+                Desconectar($conexao);
+                $stmt->close();
+
+                return "Sucesso";
+            }
+        }
     }
+
+    // Se nenhum registro foi encontrado ou senha inválida
+    session_unset();
+    session_destroy();
+
+    Desconectar($conexao);
+    $stmt->close();
+
+    return "Erro";
 }

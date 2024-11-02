@@ -1,9 +1,9 @@
 <?php 
     session_start();
 
- $id = $_SESSION['id_contribuidor'];
- $nome = $_SESSION['nome_contribuidor'];
- $email = $_SESSION['email_contribuidor'];
+ $id = $_SESSION['id_user'];
+ $nome = $_SESSION['nome_user'];
+ $email = $_SESSION['email_user'];
 
 ?>
 
