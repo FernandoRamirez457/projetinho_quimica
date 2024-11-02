@@ -5,5 +5,3 @@
     
         return $resp;
     }
-
-?>
