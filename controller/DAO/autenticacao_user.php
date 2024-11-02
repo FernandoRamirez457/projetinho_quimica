@@ -30,9 +30,9 @@ function Autenticar($email, $senha)
         // Verificar a senha
         if (password_verify($senha, $senha_db)) {
             // Senha válida
-            $_SESSION['id'] = $id;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['email'] = $email_db;
+            $_SESSION['id_user'] = $id;
+            $_SESSION['nome_user'] = $nome;
+            $_SESSION['email_user'] = $email_db;
 
             Desconectar($conexao);
             $stmt->close();

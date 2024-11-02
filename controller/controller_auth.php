@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
-require './DAO/autenticacao.php';
+require './DAO/autenticacao_user.php';
 require '../model/User.php';
 require './utils.php';
 
