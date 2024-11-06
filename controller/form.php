@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descricao = $_POST['descricao'];
     $data_publicacao = $_POST['data_publicacao'];
     $acessos = $_POST['acessos'];
+    $armazenamento = $_POST['armazenamento'];
 
     // Conectar ao banco de dados
     $conexao = Conectar();
@@ -27,16 +28,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Preparar o SQL para inserção
         $sql = "INSERT INTO postagem 
                 (id_comodo, id_categoria, nome_produto, introducao, composicao, combinacoes_perigosas, manipulacao, 
-                video, banner, descricao, data_publicacao, acessos) 
+                video, banner, descricao, data_publicacao,armazenamento, acessos) 
                 VALUES 
-                (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Preparar a declaração
         if ($stmt = mysqli_prepare($conexao, $sql)) {
             // Vincular parâmetros
-            mysqli_stmt_bind_param($stmt, 'iisssssssssi', $id_comodo, $id_categoria, $nome_produto, $introducao, 
+            mysqli_stmt_bind_param($stmt, 'iissssssssssi', $id_comodo, $id_categoria, $nome_produto, $introducao, 
                                    $composicao, $combinacoes_perigosas, $manipulacao, $video, $banner, $descricao, 
-                                   $data_publicacao, $acessos);
+                                   $data_publicacao,$armazenamento, $acessos);
 
             // Executar a declaração
             if (mysqli_stmt_execute($stmt)) {

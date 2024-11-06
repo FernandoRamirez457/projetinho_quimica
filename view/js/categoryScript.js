@@ -27,6 +27,7 @@ function fetchHome() {
         categoria: postagem.id_categoria,
         imagem: postagem.banner,
         acessos: postagem.acessos,
+        armazenamento: postagem.armazenamento
       }));
 
       renderLatestNews();
@@ -133,7 +134,7 @@ function setupCardClickHandlers() {
 
   cardColumnTotality.forEach((card) => {
     card.addEventListener("click", () => {
-      window.location.href = `./conteudo.html?id=${card.id}`;
+      window.location.href = `../conteudo.html?id=${card.id}`;
     });
   });
 }

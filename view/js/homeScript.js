@@ -32,6 +32,7 @@ function fetchHome() {
         categoria: postagem.id_categoria,
         imagem: postagem.banner,
         acessos: postagem.acessos,
+        armazenamento: postagem.armazenamento
       }));
 
 

@@ -16,6 +16,7 @@ function Insert_Post($dados)
     $descricao = $dados->descricao;
     $data = $dados->data_publicacao;
     $acessos = $dados->acessos;
+    $armazenamento = $dados->armazenamento;
 
     //Declaração da variavel do id do comodo
     $id_comodo;
@@ -74,11 +75,11 @@ function Insert_Post($dados)
     if ($id_categoria && $id_comodo !== null) {
         //Uso de prepared statements
         //Criação da consulta
-        $stmt = $conexao->prepare("INSERT INTO postagem (id_comodo, id_categoria, nome_produto, introducao, composicao, combinacoes_perigosas, manipulacao, video,banner,descricao,data_publicacao, acessos)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $conexao->prepare("INSERT INTO postagem (id_comodo, id_categoria, nome_produto, introducao, composicao, combinacoes_perigosas, manipulacao, video,banner,descricao,data_publicacao, acessos,armazenamento)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
         //Associando os parametros com as variaveis
-        $stmt->bind_param("sssssssssssi", $id_comodo, $id_categoria, $nome_produto, $introducao, $composicao, $combinacoes_perigosas, $manipulacao, $video, $banner, $descricao, $data, $acessos);
+        $stmt->bind_param("sssssssssssis", $id_comodo, $id_categoria, $nome_produto, $introducao, $composicao, $combinacoes_perigosas, $manipulacao, $video, $banner, $descricao, $data, $acessos,$armazenamento);
 
         //Retorna o resultado
         if ($stmt->execute()) {

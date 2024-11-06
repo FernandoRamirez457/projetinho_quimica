@@ -11,6 +11,7 @@ function show_post(post) {
     atualizarElemento('.conteudo-composicao', post.composicao);
     atualizarElemento('.conteudo-combinacoes', post.combinacoes_perigosas);
     atualizarElemento('.conteudo-manipulacao', post.manipulacao);
+    atualizarElemento('.conteudo-armazenamento', post.armazenamento);
 }
 
 function atualizarElemento(seletor, valor) {
