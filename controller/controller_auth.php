@@ -20,9 +20,12 @@ switch ($req["REQUEST_METHOD"]) {
         $resultado  = Autenticar($email,$senha);
 
         // Redirecionamento
-        if($resultado == "Sucesso"){
-            // Página de usuário se for autenticado
+        if($resultado == "Adm"){
+            // Página de Administrador / Contribuidor se for autenticado
             header('Location: ../view/perfilAdm.php');
+        }else if($resultado == "User"){
+            // Página de usuário se for autenticado
+            header('Location: ../view/paginaUser.php');
         } else {
             // Volta para a página de login
             header('Location: http://localhost/projetinho_quimica/view/login.html');

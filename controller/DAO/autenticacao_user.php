@@ -36,7 +36,7 @@ function Autenticar($email, $senha)
             Desconectar($conexao);
             $stmt->close();
 
-            return "Sucesso";
+            return "User";
         }
     } else {
         // Se o email não for encontrado na tabela usuario, procura na tabela contribuidor
@@ -67,7 +67,7 @@ function Autenticar($email, $senha)
                 Desconectar($conexao);
                 $stmt->close();
 
-                return "Sucesso";
+                return "Adm";
             }
         }
     }
