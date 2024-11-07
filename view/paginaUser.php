@@ -1,21 +1,23 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
- $id = $_SESSION['id_user'];
- $nome = $_SESSION['nome_user'];
- $email = $_SESSION['email_user'];
+$id = $_SESSION['id_user'];
+$nome = $_SESSION['nome_user'];
+$email = $_SESSION['email_user'];
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-    <link rel="stylesheet" href="./css/adm.css">
+    <title>Página de Usuário</title>
+    <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/assets/main.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
@@ -37,7 +39,13 @@
     </header>
     <aside class="sidebar" id="sidebar">
         <p class="close-btn" onclick="toggleSidebar()">×</p>
+<<<<<<< HEAD
         <a href="./index.html"><div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div></a>
+=======
+        <a href="./index.html">
+            <div class="logotipo"><img src="./img/quimica.png" alt=""></div>
+        </a>
+>>>>>>> a28c04bd8517e33cb588e210cd75e18a2c643e55
         <div class="sidebar-content">
             <a href="./index.html" class="sidebar-link active">
                 <i class="fa-solid fa-house"></i>
@@ -74,15 +82,32 @@
     <!--FIM HEADER-->
 
     <main>
-        <div class="admin-header">
-            <h2>Administrador: <?php echo $nome ?></h2>
+        <div class="user-header">
+            <h2>Bem Vindo(a): <?php echo $nome ?></h2>
         </div>
         <section class="stats-section">
             <div class="stats-header">
                 <h3>Estatísticas Gerais:</h3>
             </div>
             <div class="stats-grid">
-                <div class="stats-card">
+                <!-- Coluna com dois cards menores -->
+                <div>
+                    <div class="stats-card stats-card-small">
+                        <h4>Total da Pontuação do Jogador:</h4>
+                        <div class="score">
+                            <img src="./img/Rating.png" alt="Rating" class="score-rating">
+                            <p>+ 4000</p>
+                        </div>
+                    </div>
+                    <div class="stats-card stats-card-small">
+                        <h4>Nº de Tarefas concluídas com perfeição</h4>
+                        <p>Conteúdo do card pequeno 2.</p>
+                    </div>
+                </div>
+
+                <!-- Coluna com dois cards grandes lado a lado -->
+                <div>
+                <div class="stats-card stats-card-large">
                     <div class="chart-container">
                         <h4>Gráfico de conclusão geral:</h4>
                         <div class="chart-content">
@@ -95,31 +120,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="stats-card">
-                    <div class="chart-container">
-                        <h4>Gráfico de uso de produtos químicos:</h4>
-                        <div class="chart-content">
-                            <img src="img/grafico2.svg" alt="Gráfico de uso de produtos químicos">
-                            <div class="legend">
-                                <p><span class="legend-color" style="background-color: #ffcc00;"></span> Produto A</p>
-                                <p><span class="legend-color" style="background-color: #33cc33;"></span> Produto B</p>
-                                <p><span class="legend-color" style="background-color: #3399ff;"></span> Produto C</p>
-                            </div>
-                        </div>
+                    <div class="stats-card stats-card-large">
+                        <h4>Feedback</h4>
+                        <p>Conteúdo do card grande 2.</p>
                     </div>
                 </div>
-                <div class="stats-card">
-                    <h4>Dados gerais:</h4>
-                    <ul>
-                        <li>Número de acessos: 0</li>
-                        <li>Número de cadastros: 0</li>
-                        <li>Leituras diárias: 0</li>
-                        <li>Jogadores diárias: 0</li>
-                        <li>Contribuições: 0</li>
-                    </ul>
-                    <button class="btn">Acessar banco de usuários</button>
-                </div>
-            </div>       
+            </div>
+
             <div class="room-stats">
                 <h3>Estatísticas de cada cômodo:</h3>
                 <div class="room-stats-grid">
@@ -151,4 +158,5 @@
     <script src="js/interactions/navbar.js"></script>
     <script src="./js/interactions/carrossel.js"></script>
 </body>
+
 </html>
