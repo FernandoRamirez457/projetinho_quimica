@@ -71,7 +71,12 @@ export function cardColumn(data) {
 
   const text = document.createElement("p");
   text.classList.add("text");
-  text.innerHTML = data.descricao;
+
+  // Limite de caracteres para a descrição
+  const maxLength = 150;
+  text.innerHTML = data.descricao.length > maxLength 
+    ? data.descricao.substring(0, maxLength) + "..."
+    : data.descricao;
 
   const btnView = document.createElement("a");
   btnView.classList.add("btn-view");

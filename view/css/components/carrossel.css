@@ -17,7 +17,6 @@
   overflow: hidden;
 }
 
-
 .container-carrossel .slide-container .slide::before {
   content: "";
   position: absolute;
@@ -32,15 +31,13 @@
 }
 
 .container-carrossel .slide-container:nth-child(1) .slide::before {
-  background-image: url(https://files.cercomp.ufg.br/weby/up/191/o/Iq_banner.jpeg?1601036659);
+  background-image: url(../../img/banner-quimicas-jogo.jpg);
+  opacity: 100%;
 }
 
 .container-carrossel .slide-container:nth-child(2) .slide::before {
-  background-image: url(https://files.cercomp.ufg.br/weby/up/191/o/Iq_banner.jpeg?1601036659);
-}
-
-.container-carrossel .slide-container:nth-child(3) .slide::before {
-  background-image: url(https://files.cercomp.ufg.br/weby/up/191/o/Iq_banner.jpeg?1601036659);
+  background-image: url(../../img/banner-quimicas.jpg);
+  opacity: 100%;
 }
 
 .container-carrossel .slide-container .slide .content-slide {
@@ -58,17 +55,30 @@
 }
 
 .container-carrossel .slide-container .slide .content-slide h3 {
-  font-size: 40px;
+  font-size: 48px;
   color: white;
   margin-bottom: 10px;
+  width: 50%;
 }
 
 .container-carrossel .slide-container .slide .content-slide p {
-  font-size: 16px;
+  font-size: 18px;
   color: white;
   width: 40%;
   height: 10%;
   margin-bottom: 20px;
+}
+
+.container-carrossel .slide-container:nth-child(2) .slide .content-slide h3 {
+  color: #daff01;
+}
+
+.container-carrossel .slide-container:nth-child(1) .slide .content-slide h3 {
+  color: #003334;
+}
+
+.container-carrossel .slide-container:nth-child(1) .slide .content-slide p {
+  color: #019934;
 }
 
 .container-carrossel .slide-container .slide .content-slide .btn-slide {
@@ -146,9 +156,16 @@
     justify-content: center;
     align-items: center;
   }
+
+  .container-carrossel .slide-container:nth-child(1) .slide::before {
+    background-image: url(../../img/banner-quimicas-jogo-mobile.jpg);
+    opacity: 70%;
+  }
+
   .container-carrossel .slide-container .slide .content-slide h3 {
-    font-size: 30px;
+    font-size: 34px;
     text-align: center;
+    width: 80%;
   }
 
   .container-carrossel .slide-container .slide .content-slide p {
@@ -156,6 +173,14 @@
     text-align: center;
     width: 100%;
     padding: 0 40px;
+  }
+
+  .container-carrossel .slide-container:nth-child(1) .slide .content-slide h3 {
+    color: white;
+  }
+
+  .container-carrossel .slide-container:nth-child(1) .slide .content-slide p {
+    color: white;
   }
 
   .container-carrossel .slide-container .slide .content-slide .btn-slide {

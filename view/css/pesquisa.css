@@ -21,12 +21,16 @@
   outline: none;
   padding-left: 40px;
   transition: width 0.7s ease;
+  padding: 0 100px;
 }
 
 .container-result-search {
+  flex: 1;
   max-width: 1400px;
+  margin: 0 auto; 
+  padding-top: 50px; 
   height: auto;
-  margin: 50px auto;
+  background-color: red;
 }
 
 .container-result-search .card-row-container {

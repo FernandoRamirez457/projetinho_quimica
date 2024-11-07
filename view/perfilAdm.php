@@ -23,7 +23,7 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <div class="navbar-content">
-            <a href="./index.html"><img src="./img/quimica.png" alt=""></a>
+            <a href="./index.html"><img src="./img/logo_q_perigo.png" alt=""></a>
             <div class="functions">
                 <div class="search-container">
                     <label for="search-input" class="search-icon">
@@ -37,7 +37,7 @@
     </header>
     <aside class="sidebar" id="sidebar">
         <p class="close-btn" onclick="toggleSidebar()">×</p>
-        <a href="./index.html"><div class="logotipo"><img src="./img/quimica.png" alt=""></div></a>
+        <a href="./index.html"><div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div></a>
         <div class="sidebar-content">
             <a href="./index.html" class="sidebar-link active">
                 <i class="fa-solid fa-house"></i>

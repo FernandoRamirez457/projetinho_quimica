@@ -3,7 +3,7 @@ import { formatDate } from "./dateFormat.js";
 export function cardRow(data) {
     const cardRowContainer = document.createElement('div');
     cardRowContainer.classList.add('card-row-container');
-    cardRowContainer.id = data.id
+    cardRowContainer.id = data.id;
 
     const cardImg = document.createElement('img');
     cardImg.src = data.imagem;
@@ -23,8 +23,7 @@ export function cardRow(data) {
     dateBase.classList.add("date-base");
 
     const iconDate = document.createElement("i");
-    iconDate.classList.add("fa-solid");
-    iconDate.classList.add("fa-clock");
+    iconDate.classList.add("fa-solid", "fa-clock");
     iconDate.style.color = "#00d619";
 
     const date = document.createElement("p");
@@ -67,11 +66,14 @@ export function cardRow(data) {
     dateBase.appendChild(barra);
     dateBase.appendChild(pCategoria);
 
-    //CONTENT
+    // CONTENT
     const text = document.createElement('p');
     text.classList.add('text');
-    text.innerHTML = data.descricao;
-    cardContent.appendChild(text);
+
+    const maxLength = 200;
+    text.innerHTML = data.descricao.length > maxLength 
+      ? `${data.descricao.substring(0, maxLength)}...` 
+      : data.descricao;
 
     const btnView = document.createElement('a');
     btnView.href = `./conteudo.html?id=${data.id}`;
@@ -79,9 +81,9 @@ export function cardRow(data) {
     btnView.textContent = 'Saiba mais';
 
     cardContent.appendChild(title);
-    cardContent.appendChild(dateBase)
+    cardContent.appendChild(dateBase);
     cardContent.appendChild(text);
     cardContent.appendChild(btnView);
 
-    return cardRowContainer
+    return cardRowContainer;
 }

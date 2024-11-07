@@ -76,7 +76,7 @@
 @media (max-width: 490px) {
   .card-row-container {
     width: 350px;
-    height: 439px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     gap: 15px;
