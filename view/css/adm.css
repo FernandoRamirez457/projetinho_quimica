@@ -1,29 +1,52 @@
-/* Estilos para a seção de administração */
+.content-perfil {
+    min-width: 100%;
+    padding: 0;
+}
+
 .admin-header {
     width: 100% !important; /* Ignora qualquer largura herdada */
     height: 200px !important; /* Altura fixa */
-    background: linear-gradient(to right, red, blue) !important; /* Gradiente */
+    background: linear-gradient(to right, rgb(0, 195, 137), rgb(0, 98, 245)) !important; /* Gradiente */
     display: flex !important;
     align-items: flex-end !important;
     padding: 0 20px !important;
     box-sizing: border-box !important; /* Inclui padding na largura total */
     margin: 0 !important; /* Remove margens */
     overflow: visible !important; /* Garantir que nada seja cortado */
+    position: relative;
 }
 
-.admin-header h2 {
-    margin: 0 !important;
-    color: white !important;
-    font-size: 24px !important;
+.admin-header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid rgb(192, 192, 192);
+    position: absolute;
+    bottom: -60px;
+    left: 150px;
+    background-color: white;
 }
 
 .stats-section {
-    padding: 20px;
+    padding:  10px 150px;
+    margin-top: 70px;
+}
+
+.name-user {
+    margin-left: 10px;
+    font-size: 26px;
+    margin-bottom: 20px ;
+}
+
+.divisor-hr {
+    border: 1px solid green;
 }
 
 .stats-header {
     margin-bottom: 20px;
+    margin-top: 40px;
 }
+
 
 .stats-grid {
     display: grid;
@@ -52,6 +75,16 @@
 .stats-card h4 {
     font-size: 15px;
     margin: 0 0 10px;
+}
+
+.stats-card:nth-child(1){
+    gap: 40px;
+}
+
+.stats-card:nth-child(1) .chart-container div{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
 }
 
 .legend {

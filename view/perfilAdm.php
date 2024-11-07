@@ -1,43 +1,47 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
- $id = $_SESSION['id_contribuidor'];
- $nome = $_SESSION['nome_contribuidor'];
- $email = $_SESSION['email_contribuidor'];
+$id = $_SESSION['id_user'];
+$nome = $_SESSION['nome_user'];
+$email = $_SESSION['email_user'];
 
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
-    <link rel="stylesheet" href="./css/adm.css">
     <link rel="stylesheet" href="./css/assets/main.css">
+    <link rel="stylesheet" href="./css/adm.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
         <div class="menu-icon" onclick="toggleSidebar()">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" style="color: white;"></i>
         </div>
         <div class="navbar-content">
             <a href="./index.html"><img src="./img/logo_q_perigo.png" alt=""></a>
             <div class="functions">
                 <div class="search-container">
-                    <label for="search-input" class="search-icon">
+                    <label for="search-input" class="search-icon" style="color: green;">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </label>
                     <input type="text" class="search-input" id="search-input" required />
                 </div>
-                <div class="profile"><i class="fa-solid fa-user"></i></div>
+                <div class="profile"><i class="fa-solid fa-user" style="color: green;"></i></div>
             </div>
         </div>
     </header>
     <aside class="sidebar" id="sidebar">
         <p class="close-btn" onclick="toggleSidebar()">×</p>
-        <a href="./index.html"><div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div></a>
+        <a href="./index.html">
+            <div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div>
+        </a>
         <div class="sidebar-content">
             <a href="./index.html" class="sidebar-link active">
                 <i class="fa-solid fa-house"></i>
@@ -73,11 +77,14 @@
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
     <!--FIM HEADER-->
 
-    <main>
+    <main class="content-perfil">
         <div class="admin-header">
-            <h2>Administrador: <?php echo $nome ?></h2>
+            <img src="https://cdn.icon-icons.com/icons2/3868/PNG/512/profile_circle_icon_242774.png" alt="">
         </div>
+
         <section class="stats-section">
+            <h2 class="name-user"><?php echo $nome ?></h2>
+            <hr class="divisor-hr">
             <div class="stats-header">
                 <h3>Estatísticas Gerais:</h3>
             </div>
@@ -85,13 +92,17 @@
                 <div class="stats-card">
                     <div class="chart-container">
                         <h4>Gráfico de conclusão geral:</h4>
-                        <div class="chart-content">
-                            <img src="img/grafico1.svg" alt="Gráfico de conclusão geral">
-                            <div class="legend">
-                                <p><span class="legend-color" style="background-color: #ff0000;"></span> Concluído</p>
-                                <p><span class="legend-color" style="background-color: #00ff00;"></span> Em progresso</p>
-                                <p><span class="legend-color" style="background-color: #0000ff;"></span> Não iniciado</p>
-                            </div>
+                        <div>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <p>+ 2019</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h4>Gráfico de conclusão geral:</h4>
+                        <div>
+                        <i class="fa-brands fa-quinscape" style="color: #B197FC;"></i>
+                            <p>+ 2019</p>
                         </div>
                     </div>
                 </div>
@@ -109,17 +120,11 @@
                     </div>
                 </div>
                 <div class="stats-card">
-                    <h4>Dados gerais:</h4>
-                    <ul>
-                        <li>Número de acessos: 0</li>
-                        <li>Número de cadastros: 0</li>
-                        <li>Leituras diárias: 0</li>
-                        <li>Jogadores diárias: 0</li>
-                        <li>Contribuições: 0</li>
-                    </ul>
-                    <button class="btn">Acessar banco de usuários</button>
+                    <h4>Feedback:</h4>
+                    <p></p>
+                    <i></i>
                 </div>
-            </div>       
+            </div>
             <div class="room-stats">
                 <h3>Estatísticas de cada cômodo:</h3>
                 <div class="room-stats-grid">
@@ -151,4 +156,5 @@
     <script src="js/interactions/navbar.js"></script>
     <script src="./js/interactions/carrossel.js"></script>
 </body>
+
 </html>
