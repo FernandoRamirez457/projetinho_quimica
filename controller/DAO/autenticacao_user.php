@@ -40,9 +40,9 @@ function Autenticar($email, $senha)
         }
     } else {
         // Se o email não for encontrado na tabela usuario, procura na tabela contribuidor
-        $sql = "SELECT id_contribuidor AS id, nome_contribuidor AS nome, email_contribuidor AS email, senha_contribuidor AS senha
-                FROM contribuidor
-                WHERE email_contribuidor = ?";
+        $sql = "SELECT id_adm AS id, nome_adm AS nome, email_adm AS email, senha_adm AS senha
+                FROM administrador
+                WHERE email_adm = ?";
 
         $stmt = $conexao->prepare($sql);
         if (!$stmt) {
@@ -54,15 +54,15 @@ function Autenticar($email, $senha)
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            // Se o email for encontrado na tabela contribuidor
+            // Se o email for encontrado na tabela administrador
             $stmt->bind_result($id, $nome, $email_db, $senha_db);
             $stmt->fetch();
 
             if (password_verify($senha, $senha_db)) {
                 // Senha válida
-                $_SESSION['id_contribuidor'] = $id;
-                $_SESSION['nome_contribuidor'] = $nome;
-                $_SESSION['email_contribuidor'] = $email_db;
+                $_SESSION['id_administrador'] = $id;
+                $_SESSION['nome_administrador'] = $nome;
+                $_SESSION['email_administrador'] = $email_db;
 
                 Desconectar($conexao);
                 $stmt->close();
