@@ -8,9 +8,12 @@ if (!id) {
     console.error('ID não encontrado na URL.');
 }
 
-var url = '../controller/controller_posts.php';
+const url = '../controller/controller_posts.php';
 
-//Fetch do JSON 
+// Exibe o esqueleto de carregamento inicial
+document.querySelectorAll('.skeleton').forEach(el => el.classList.add('active'));
+
+// Fetch do JSON
 fetch(url)
   .then(response => {
     if (!response.ok) {
@@ -26,9 +29,15 @@ fetch(url)
         return;
     }
 
+    // Chama show_post após os dados estarem carregados
     show_post(postagem);
+
+    // Incrementa a visualização
     increment_view(id);
 
+    // Remove o esqueleto de carregamento após a atualização do conteúdo
+    document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('active'));
+    
   })
   .catch(error => {
     console.error('Erro: ' + error);

@@ -1,15 +1,9 @@
 <?php
 session_start();
 
-<<<<<<< HEAD
-$id = $_SESSION['id_user'];
-$nome = $_SESSION['nome_user'];
-$email = $_SESSION['email_user'];
-=======
  $id = $_SESSION['id_administrador'];
  $nome = $_SESSION['nome_administrador'];
  $email = $_SESSION['email_administrador'];
->>>>>>> a28c04bd8517e33cb588e210cd75e18a2c643e55
 
 ?>
 
