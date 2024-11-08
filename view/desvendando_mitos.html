@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desvendando Mitos - Blog</title>
-    <link rel="stylesheet" href="../css/assets/main.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="./css/assets/main.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
             <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
         </div>
         <div class="navbar-content">
-            <a href="../index.html"><img src="../img/logo_q_perigo.png" alt=""></a>
+            <a href="./index.html"><img src="./img/logo_q_perigo.png" alt=""></a>
 
             <div class="functions">
                 <div class="search-container">
@@ -25,8 +25,9 @@
                     </label>
                     <input type="text" class="search-input" id="search-input" required />
                 </div>
+
                 <!--
-                <a href="../login.html">
+                <a href="./login.html">
                     <div class="profile">
                         <i class="fa-solid fa-user" style="color: #00ab25;"></i>
                     </div>
@@ -38,14 +39,14 @@
     <aside class="sidebar" id="sidebar">
         <p class="close-btn" onclick="toggleSidebar()">×</p>
         <a href="./index.html">
-            <div class="logotipo"><img src="../img/logo_q_perigo.png" alt=""></div>
+            <div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div>
         </a>
         <div class="sidebar-content">
-            <a href="../index.html" class="sidebar-link active">
+            <a href="./index.html" class="sidebar-link active">
                 <i class="fa-solid fa-house" style="color: #ffffff;"></i>
                 <span>Home</span>
             </a>
-           <!--
+        <!--
             <a href="#" class="sidebar-link">
                 <i class="fa-solid fa-gamepad" style="color: #ffffff;"></i>
                 <span>Jogo: Clean House</span>
@@ -60,15 +61,17 @@
                 <div class="triangulo"></div>
             </div>
 
-            <a href="../subpaginas/dicas_web.html" class="sidebar-link">
+            <a href="./dicas_web.html" class="sidebar-link">
                 <i class="fa-solid fa-lightbulb" style="color: #ffffff;"></i>
                 <span>Dicas da Web</span>
             </a>
-            <a href="../subpaginas/desvendando_mitos.html" class="sidebar-link">
+            <!--
+            <a href="./desvendando_mitos.html" class="sidebar-link">
                 <i class="fa-solid fa-magnifying-glass-plus" style="color: #ffffff;"></i>
                 <span>Desvendando Mitos</span>
             </a>
-            <a href="../subpaginas/produtos_limpeza.html" class="sidebar-link">
+            -->
+            <a href="./produtos_limpeza.html" class="sidebar-link">
                 <i class="fa-solid fa-soap" style="color: #ffffff;"></i>
                 <span>Produtos de Limpeza</span>
             </a>
@@ -78,6 +81,17 @@
 
     <!--CONTEUDO PRINCIPAL-->
     <main>
+        <section class="container-banner">
+            <div class="banner">
+                <div class="content-banner">
+                    <h3>Você sabe armazenar os Produtos de Limpeza?</h3>
+                    <p>Saiba como guardar produtos de limpeza corretamente para proteger sua família, evitar acidentes e garantir a eficácia dos produtos. Dicas essenciais para um lar mais seguro e organizado!</p>
+                    <a href="#emphasis-base" class="btn-banner">Saiba mais</a>
+                </div>
+            </div>
+        </section>
+
+        <!--
         <section class="container-carrossel">
             <div class="slide-container active">
                 <div class="slide">
@@ -86,7 +100,7 @@
                         <p>Clean House: Um jogo educativo onde você aprende sobre limpeza de diferentes cômodos da casa,
                             produtos de limpeza e cuidados com misturas químicas. Resolva mini-jogos ao limpar objetos
                             sujos e torne-se um especialista na organização doméstica!</p>
-                        <a href="" class="btn-slide">Saiba mais</a>
+                            <a href="#emphasis-base" class="btn-slide">Saiba mais</a>
                     </div>
                 </div>
             </div>
@@ -94,23 +108,9 @@
             <div class="slide-container">
                 <div class="slide">
                     <div class="content-slide">
-                        <h3>Clean House</h3>
-                        <p>Clean House: Um jogo educativo onde você aprende sobre limpeza de diferentes cômodos da casa,
-                            produtos de limpeza e cuidados com misturas químicas. Resolva mini-jogos ao limpar objetos
-                            sujos e torne-se um especialista na organização doméstica!</p>
-                        <a href="" class="btn-slide">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-container">
-                <div class="slide">
-                    <div class="content-slide">
-                        <h3>Clean House</h3>
-                        <p>Clean House: Um jogo educativo onde você aprende sobre limpeza de diferentes cômodos da casa,
-                            produtos de limpeza e cuidados com misturas químicas. Resolva mini-jogos ao limpar objetos
-                            sujos e torne-se um especialista na organização doméstica!</p>
-                        <a href="" class="btn-slide">Saiba mais</a>
+                        <h3>Você sabe armazenar os Produtos de Limpeza?</h3>
+                        <p>Saiba como guardar produtos de limpeza corretamente para proteger sua família, evitar acidentes e garantir a eficácia dos produtos. Dicas essenciais para um lar mais seguro e organizado!</p>
+                        <a href="#emphasis-base" class="btn-slide">Saiba mais</a>
                     </div>
                 </div>
             </div>
@@ -119,6 +119,8 @@
             <div id="prev" onclick="prev()">&#10094;</div>
             <div id="next" onclick="next()">&#10095;</div>
         </section>
+
+        -->
 
         <div class="filter-rooms">
             <button class="room" id="1">
@@ -167,6 +169,7 @@
 
         <hr style="max-width: 1400px; margin: 30px auto;">
 
+        <!--
         <div class="base-contributor">
             <div class="contributor-img">
                 <img src="../img/stem-cell research-amico.png" alt="">
@@ -186,6 +189,7 @@
                 <a href="../contribuidor.html" class="btn-contributor">Quero Contribuir</a>
             </div>
         </div>
+        -->
     </main>
 
     <!--RODAPÉ-->
@@ -196,9 +200,9 @@
         const idCategoria = 2;
     </script>
 
-    <script src="../js/interactions/navbar.js"></script>
-    <script src="../js/interactions/carrossel.js"></script>
-    <script src="../js/categoryScript.js" type="module"></script>
+    <script src="./js/interactions/navbar.js"></script>
+    <script src="./js/interactions/carrossel.js"></script>
+    <script src="./js/categoryScript.js" type="module"></script>
 </body>
 
 </html>

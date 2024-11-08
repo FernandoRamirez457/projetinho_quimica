@@ -2,7 +2,7 @@ import { cardColumn } from "./components/cardColumn.js";
 import { cardRow } from "./components/cardRow.js";
 
 // URL da API para fetch
-const url = "../../controller/controller_posts.php";
+const url = "../controller/controller_posts.php";
 let postagens = [];
 let dataAtual;
 
@@ -15,8 +15,13 @@ function fetchHome() {
       return response.json();
     })
     .then((data) => {
-      // Filtra as postagens pela categoria especificada na página
-      dataAtual = data.filter((item) => item.id_categoria === idCategoria);
+      if (activeFilters.length !== 0) {
+        dataAtual = data.filter((item) => 
+          activeFilters.includes(item.id_comodo) && item.id_categoria === idCategoria
+        );
+      } else {
+        dataAtual = data.filter((item) => item.id_categoria === idCategoria);
+      }
 
       postagens = dataAtual.map((postagem) => ({
         id: postagem.id_postagem,
@@ -134,7 +139,7 @@ function setupCardClickHandlers() {
 
   cardColumnTotality.forEach((card) => {
     card.addEventListener("click", () => {
-      window.location.href = `../conteudo.html?id=${card.id}`;
+      window.location.href = `./conteudo.html?id=${card.id}`;
     });
   });
 }
