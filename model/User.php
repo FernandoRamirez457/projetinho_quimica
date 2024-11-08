@@ -1,4 +1,5 @@
 <?php
+// Classe PHP para instanciar usuários
 class Usuario
 {
     public $nome;

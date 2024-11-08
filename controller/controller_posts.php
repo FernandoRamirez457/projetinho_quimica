@@ -42,6 +42,7 @@ switch($req["REQUEST_METHOD"]){
         }
         break;
     case "PATCH":
+        // Função usada pra aumentar o numero de acessos da postagem no banco de dados
         // Recebe os dados da requisição
         $dados = json_decode(file_get_contents('php://input'));
         $resultado = increment_view($dados->id_postagem);

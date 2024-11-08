@@ -102,7 +102,7 @@ function Fetch_All_Posts()
     require 'conexao.php';
     $conexao = Conectar();
 
-    // Monta a consulta SQL usando o valor do input diretamente
+    // Consulta do SQL para resgatar as postagens do banco
     $query = "SELECT * FROM postagem";
 
     // Prepara a consulta
@@ -119,5 +119,6 @@ function Fetch_All_Posts()
     $stmt->close();
     Desconectar($conexao);
 
+    // Retorna os posts
     return json_encode($data);
 }

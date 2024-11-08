@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+// Recupera informações do usuário que estão na sessão
 $id = $_SESSION['id_user'];
 $nome = $_SESSION['nome_user'];
 $email = $_SESSION['email_user'];
@@ -39,13 +41,7 @@ $email = $_SESSION['email_user'];
     </header>
     <aside class="sidebar" id="sidebar">
         <p class="close-btn" onclick="toggleSidebar()">×</p>
-<<<<<<< HEAD
         <a href="./index.html"><div class="logotipo"><img src="./img/logo_q_perigo.png" alt=""></div></a>
-=======
-        <a href="./index.html">
-            <div class="logotipo"><img src="./img/quimica.png" alt=""></div>
-        </a>
->>>>>>> a28c04bd8517e33cb588e210cd75e18a2c643e55
         <div class="sidebar-content">
             <a href="./index.html" class="sidebar-link active">
                 <i class="fa-solid fa-house"></i>

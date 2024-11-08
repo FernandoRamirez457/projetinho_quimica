@@ -1,9 +1,9 @@
 <?php
 session_start();
-
- $id = $_SESSION['id_administrador'];
- $nome = $_SESSION['nome_administrador'];
- $email = $_SESSION['email_administrador'];
+// Recupera informações do administrador que estão na sessão
+$id = $_SESSION['id_administrador'];
+$nome = $_SESSION['nome_administrador'];
+$email = $_SESSION['email_administrador'];
 
 ?>
 

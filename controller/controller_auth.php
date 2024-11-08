@@ -9,7 +9,7 @@ require './utils.php';
 
 
 $req = $_SERVER;
-
+// Switch Case para autenticação dos usuários
 switch ($req["REQUEST_METHOD"]) {
     case "POST":
         //Recebe os dados de login
@@ -34,5 +34,6 @@ switch ($req["REQUEST_METHOD"]) {
          echo json_encode($status);
         break;
     default:
+        // ...
         break;
 }

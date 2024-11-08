@@ -8,7 +8,7 @@ require './utils.php';
 
 
 $req = $_SERVER;
-
+// Switch case para cadastro de usuários
 switch ($req["REQUEST_METHOD"]) {
     case "POST":
         $nome = $_POST['nome'];
@@ -29,5 +29,6 @@ switch ($req["REQUEST_METHOD"]) {
         echo json_encode($status);
         break;
     default:
+        // ...
         break;
 }

@@ -1,4 +1,5 @@
 <?php 
+    // Classe PHP usada para retorno de respostas
     class Resposta{
         public $status;
         public $msg;
