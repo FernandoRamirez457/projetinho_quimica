@@ -1,7 +1,6 @@
 import { formatDate } from "./dateFormat.js";
 
 export function cardColumn(data) {
-  console.log(data);
 
   const cardColumnContainer = document.createElement("div");
   cardColumnContainer.classList.add("card-column-container");

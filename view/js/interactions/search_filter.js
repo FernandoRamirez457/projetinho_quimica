@@ -1,9 +1,9 @@
 import { cardRow } from "../components/cardRow.js";
 
 const baseSearchNews = document.querySelector(".result-search");
-
 const alertSearch = document.querySelector(".alertSearch");
-const btnFilter = document.querySelectorAll(".room");
+const btnFilter = document.querySelectorAll("button");
+
 let activeFilters = [];
 let postagens = [];
 
@@ -14,9 +14,8 @@ function filterPosts(data, keyword, activeFilters) {
       `${item.nome_produto} ${item.introducao} ${item.composicao} ${item.combinacoes_perigosas} ${item.manipulacao}`.toLowerCase();
     const matchesKeyword = searchStr.includes(keyword.toLowerCase());
 
-    // Se não houver filtros ativos, ou se o ID da postagem estiver nos filtros ativos
-    const matchesFilter =
-      activeFilters.length === 0 || activeFilters.includes(item.id_comodo); // Supondo que room_id seja o campo com o ID do comodo
+    // Verifica se o filtro está ativo e se o id_comodo da postagem corresponde aos filtros ativos
+    const matchesFilter = activeFilters.length === 0 || activeFilters.includes(item.id_comodo);
 
     return matchesKeyword && matchesFilter;
   });
@@ -31,10 +30,7 @@ function getPostsFromLocalStorage() {
 // Função para buscar e filtrar postagens
 function fetchAndFilterPosts(keyword) {
   const data = getPostsFromLocalStorage();
-
   const filteredPosts = filterPosts(data, keyword, activeFilters);
-
-  console.log(filteredPosts);
 
   if (filteredPosts.length === 0) {
     alertSearch.style.display = "block";
@@ -137,8 +133,9 @@ function renderSearchNews() {
 
 // Listener para os botões de filtro de comodos
 btnFilter.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
     const filterId = parseInt(btn.id);
+    console.log("Filtro", filterId);
 
     if (btn.classList.contains("active")) {
       btn.style.backgroundColor = "white";

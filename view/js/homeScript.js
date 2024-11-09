@@ -4,14 +4,19 @@ import { cardRow } from "./components/cardRow.js";
 // URL da API para fetch
 const url = "../controller/controller_posts.php";
 let postagens = [];
+let activeFilters = [];
 let dataAtual;
 
 // Função para buscar os dados da API e salvar no localStorage
 function fetchHome() {
+  console.log(activeFilters);
+
   // Verifica se já temos os dados no localStorage
   const localStorageData = localStorage.getItem("postagens");
   if (localStorageData) {
     postagens = JSON.parse(localStorageData);
+    // Aplica o filtro sempre que a página for carregada
+    aplicarFiltro();
     renderLatestNews();
     renderEmphasisNews();
     setupCardClickHandlers();
@@ -25,27 +30,35 @@ function fetchHome() {
         return response.json();
       })
       .then((data) => {
-        if (activeFilters.length !== 0) {
+        if (activeFilters.length > 0 && activeFilters[0] != 0) {
+          // Aplica o filtro imediatamente
           dataAtual = data.filter((item) => activeFilters.includes(item.id_comodo));
+          console.log("Filtros ativos: ", activeFilters);
         } else {
           dataAtual = data;
+          console.log("Sem filtros aplicados.");
         }
 
         postagens = dataAtual.map((postagem) => ({
-          id_postagem: postagem.id_postagem, 
-          nome_produto: postagem.nome_produto, 
-          introducao: postagem.introducao, 
-          data_publicacao: postagem.data_publicacao || new Date().toISOString().split("T")[0], 
-          id_categoria: postagem.id_categoria, 
-          banner: postagem.banner, 
-          acessos: postagem.acessos, 
-          armazenamento: postagem.armazenamento 
+          id_postagem: postagem.id_postagem,
+          nome_produto: postagem.nome_produto,
+          composicao: postagem.composicao,
+          manipulacao: postagem.manipulacao,
+          combinacoes_perigosas: postagem.combinacoes_perigosas,
+          introducao: postagem.introducao,
+          data_publicacao: postagem.data_publicacao || new Date().toISOString().split("T")[0],
+          id_categoria: postagem.id_categoria,
+          id_comodo: postagem.id_comodo,
+          banner: postagem.banner,
+          acessos: postagem.acessos,
+          armazenamento: postagem.armazenamento,
         }));
 
         // Salva os dados no localStorage
         localStorage.setItem("postagens", JSON.stringify(postagens));
 
-        // Renderizar as últimas notícias e as notícias em destaque
+        // Aplica o filtro e renderiza
+        aplicarFiltro();
         renderLatestNews();
         renderEmphasisNews();
         setupCardClickHandlers();
@@ -56,11 +69,21 @@ function fetchHome() {
   }
 }
 
+// Função que aplica os filtros ativos nas postagens
+function aplicarFiltro() {
+  if (activeFilters.length > 0 && activeFilters[0] != 0) {
+    dataAtual = postagens.filter((item) => activeFilters.includes(item.id_comodo));
+  } else {
+    dataAtual = postagens;
+  }
+}
+
 // Carrega as postagens
 fetchHome();
 
+// Lógica para os botões de filtro
 const btnFilter = document.querySelectorAll(".room");
-let activeFilters = [];
+console.log(btnFilter);
 
 btnFilter.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -73,6 +96,8 @@ btnFilter.forEach((btn) => {
       btn.classList.add("active");
       activeFilters.push(filterId);
     }
+
+    // Atualiza os dados filtrados
     fetchHome();
   });
 });
@@ -81,7 +106,7 @@ btnFilter.forEach((btn) => {
 function renderLatestNews() {
   const baseLatestNews = document.querySelector(".cards-base-home-column");
   baseLatestNews.innerHTML = '';
-  let latestNews = postagens
+  let latestNews = dataAtual
     .sort((a, b) => new Date(b.data_publicacao) - new Date(a.data_publicacao))
     .slice(0, 4);
 
@@ -100,11 +125,10 @@ function renderEmphasisNews() {
   const nextPageBtn = document.getElementById("next-page");
   const pageNumber = document.querySelector(".number");
 
-  let emphasisNews = postagens
+  let emphasisNews = dataAtual
     .sort((a, b) => b.acessos - a.acessos)
     .slice(0, 18);
 
-  // Número total de páginas necessárias para exibir todas as notícias
   const totalPages = Math.ceil(emphasisNews.length / itemsPerPage);
 
   function renderCards(startIndex) {
