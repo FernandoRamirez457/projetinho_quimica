@@ -116,7 +116,12 @@
   border: 2px solid rgb(0, 188, 0);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
+  .base-filter-search {
+    padding: 0px;
+    justify-content: space-between;
+    gap: 40px;
+  }
   .title-latest-news,
   .title-emphasis {
     text-align: center;
@@ -141,7 +146,11 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 600px) {
+  .base-filter-search {
+    padding: 0px;
+    flex-direction: column;
+  }
   .latest-news-base .cards-base-home {
     justify-content: center;
   }

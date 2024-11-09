@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  width: 100%;
 }
 
 .filter-rooms {
@@ -19,18 +20,18 @@
 .search-container-page {
   position: relative;
   display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .search-input-page {
-  flex-wrap: wrap;
-  flex: 1;
-  max-width: 1200px;
-  width: 800px;
+  width: 1000px;
   height: 40px;
   border-radius: 20px;
   border: none;
   outline: none;
   transition: width 0.7s ease;
+  margin: 0 auto;
 }
 
 .container-result-search {
@@ -70,19 +71,8 @@
   padding: 5px 15px;
 }
 
-@media (max-width: 500px) {
-  .navbar-content img {
-    display: none;
-  }
-
-  .search-container-page {
-    position: relative;
-    display: flex;
-  }
-
-  .search-input-page {
-    flex-wrap: wrap;
-    flex: 1;
-    width: auto;
+@media (max-width: 1300px) {
+  .search-container{
+    width: 90%;
   }
 }

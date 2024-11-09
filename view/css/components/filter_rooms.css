@@ -29,14 +29,14 @@
   width: 100%;
   opacity: 90%;
   padding: 3px;
-  filter: brightness(0.7); 
+  filter: brightness(0.7);
   object-fit: cover;
 }
 
 .room h3 {
   z-index: 2;
   color: white;
-  transition: color 0.5s; 
+  transition: color 0.5s;
 }
 
 .filter-rooms .room.active {
@@ -44,7 +44,7 @@
 }
 
 .filter-rooms .room.active h3 {
-  color: #82ff91; 
+  color: #82ff91;
 }
 
 .filter-rooms .room:hover {
@@ -53,12 +53,13 @@
 }
 
 .filter-rooms .room:hover h3 {
-  color: #82ff91; 
+  color: #82ff91;
 }
 
 .search-container {
   position: relative;
   display: flex;
+  width: auto;
 }
 
 .search-icon {
@@ -84,10 +85,46 @@
   box-shadow: 2px 2px 5px #777;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .filter-rooms .room {
-    min-width: 160px;
+    min-width: 100px;
+    font-size: 13px;
+  }
+
+  .search-input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .filter-rooms {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  .filter-rooms::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .filter-rooms::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+  }
+
+  .filter-rooms::-webkit-scrollbar-thumb {
+    background-color: #00cd18;
+    border-radius: 10px;
+    margin-top: 6px;
+  }
+
+  .filter-rooms .room {
+    min-width: 140px;
     padding: 10px;
     font-size: 13px;
+  }
+
+  .search-input {
+    width: 260px;
   }
 }

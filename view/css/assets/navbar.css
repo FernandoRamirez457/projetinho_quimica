@@ -167,27 +167,20 @@ header {
 }
 
 @media (max-width: 900px) {
-  .search-input{
-    flex-wrap: wrap;
-    flex: 1;
-    width: 40px;
-  }
-
   header {
     padding: 15px 10px;
   }
+
   .navbar-content img {
     height: 40px;
   }
+
   .nav-links {
     display: none;
   }
+
   .functions {
     gap: 10px;
-  }
-
-  .search-input:focus {
-    width: 140px;
   }
 
   .profile {
@@ -195,7 +188,6 @@ header {
   }
 
   .sidebar {
-    left: -280px;
     width: 280px;
   }
 }
