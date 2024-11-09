@@ -3,6 +3,14 @@
 @import url(./components/card_row.css);
 @import url(./components/filter_rooms.css);
 
+.base-filter-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 30px 0;
+}
+
 .latest-news-base,
 .emphasis-base {
   max-width: 1400px;

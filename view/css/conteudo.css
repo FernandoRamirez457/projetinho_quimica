@@ -29,6 +29,7 @@
   text-align: center;
   font-weight: bold;
   margin-bottom: 25px;
+  font-size: 23px;
 }
 .texto {
   margin-top: 10px;
@@ -36,6 +37,7 @@
   line-height: 1.5;
   color: rgb(51, 51, 51);
   text-align: justify; 
+  font-size: 18px;
 }
 
 /* Estilos do container de postagens */

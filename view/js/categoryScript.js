@@ -1,54 +1,50 @@
 import { cardColumn } from "./components/cardColumn.js";
 import { cardRow } from "./components/cardRow.js";
 
-// URL da API para fetch
-const url = "../controller/controller_posts.php";
+// Variáveis
 let postagens = [];
 let dataAtual;
+let activeFilters = []; // Declare a variável antes de usá-la
 
+// Função para buscar as postagens
 function fetchHome() {
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erro na solicitação: " + response.status);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (activeFilters.length !== 0) {
-        dataAtual = data.filter((item) => 
-          activeFilters.includes(item.id_comodo) && item.id_categoria === idCategoria
-        );
-      } else {
-        dataAtual = data.filter((item) => item.id_categoria === idCategoria);
-      }
+  const storedPostagens = localStorage.getItem("postagens");
 
-      postagens = dataAtual.map((postagem) => ({
-        id: postagem.id_postagem,
-        titulo: postagem.nome_produto,
-        descricao: postagem.introducao,
-        data_publicacao:
-          postagem.data_publicacao || new Date().toISOString().split("T")[0],
-        categoria: postagem.id_categoria,
-        imagem: postagem.banner,
-        acessos: postagem.acessos,
-        armazenamento: postagem.armazenamento
-      }));
+  if (storedPostagens) {
+    // Se os dados estão no localStorage, parse o JSON para utilizá-los
+    const data = JSON.parse(storedPostagens);
+    
+    if (activeFilters.length !== 0) {
+      dataAtual = data.filter((item) => 
+        activeFilters.includes(item.id_comodo) && item.id_categoria === idCategoria
+      );
+    } else {
+      dataAtual = data.filter((item) => item.id_categoria === idCategoria);
+    }
 
-      renderLatestNews();
-      renderEmphasisNews();
-      setupCardClickHandlers();
-    })
-    .catch((error) => {
-      console.error("Erro: " + error);
-    });
+    postagens = dataAtual.map((postagem) => ({
+      id_postagem: postagem.id_postagem, 
+      nome_produto: postagem.nome_produto, 
+      introducao: postagem.introducao, 
+      data_publicacao: postagem.data_publicacao || new Date().toISOString().split("T")[0], 
+      id_categoria: postagem.id_categoria, 
+      banner: postagem.banner, 
+      acessos: postagem.acessos, 
+      armazenamento: postagem.armazenamento 
+    }));
+
+    renderLatestNews();
+    renderEmphasisNews();
+    setupCardClickHandlers();
+  } else {
+    console.error("Erro: Dados não encontrados no localStorage.");
+  }
 }
 
 fetchHome();
 
-
+// Manipulação dos filtros
 const btnFilter = document.querySelectorAll(".room");
-let activeFilters = [];
 
 btnFilter.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -57,11 +53,11 @@ btnFilter.forEach((btn) => {
     if (btn.classList.contains("active")) {
       btn.classList.remove("active");
       activeFilters = activeFilters.filter((id) => id !== filterId);
-  } else {
+    } else {
       btn.classList.add("active");
       activeFilters.push(filterId);
-  }
-  fetchHome();
+    }
+    fetchHome();
   });
 });
 

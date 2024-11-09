@@ -1,13 +1,15 @@
 import { formatDate } from "./dateFormat.js";
 
 export function cardColumn(data) {
+  console.log(data);
+
   const cardColumnContainer = document.createElement("div");
   cardColumnContainer.classList.add("card-column-container");
-  cardColumnContainer.id = data.id
+  cardColumnContainer.id = data.id_postagem;  // Alterado para id_postagem
 
   const imgCard = document.createElement("img");
   imgCard.classList.add("card-img");
-  imgCard.src = data.imagem;
+  imgCard.src = data.banner;  // Alterado para banner
 
   cardColumnContainer.appendChild(imgCard);
 
@@ -15,7 +17,7 @@ export function cardColumn(data) {
   cardContent.classList.add("card-content");
   cardColumnContainer.appendChild(cardContent);
 
-  //DATE
+  // DATE
   const dateBase = document.createElement("div");
   dateBase.classList.add("date-base");
 
@@ -26,14 +28,14 @@ export function cardColumn(data) {
 
   const date = document.createElement("p");
   date.classList.add("date");
-  date.textContent = formatDate(data.data_publicacao);
+  date.textContent = formatDate(data.data_publicacao);  // Mantido data_publicacao
 
   const barra = document.createElement("p");
   barra.textContent = "|";
 
   const pCategoria = document.createElement("p");
 
-  let id_categoria = data.categoria;
+  let id_categoria = data.id_categoria;  // Alterado para id_categoria
   let categoria;
 
   switch (id_categoria) {
@@ -64,31 +66,29 @@ export function cardColumn(data) {
   dateBase.appendChild(barra);
   dateBase.appendChild(pCategoria);
 
-  //CONTENT
+  // CONTENT
   const title = document.createElement("h3");
   title.classList.add("title");
-  title.textContent = data.titulo;
+  title.textContent = data.nome_produto;  // Alterado para nome_produto
 
   const text = document.createElement("p");
   text.classList.add("text");
 
   // Limite de caracteres para a descrição
   const maxLength = 150;
-  text.innerHTML = data.descricao.length > maxLength 
-    ? data.descricao.substring(0, maxLength) + "..."
-    : data.descricao;
+  text.innerHTML = data.introducao.length > maxLength  // Alterado para introducao
+    ? data.introducao.substring(0, maxLength) + "..."
+    : data.introducao;
 
   const btnView = document.createElement("a");
   btnView.classList.add("btn-view");
   btnView.textContent = "Saiba mais";
-  btnView.href = `./conteudo.html?id=${data.id}`;
+  btnView.href = `./conteudo.html?id=${data.id_postagem}`;  // Alterado para id_postagem
 
   cardContent.appendChild(dateBase);
   cardContent.appendChild(title);
   cardContent.appendChild(text);
   cardContent.appendChild(btnView);
 
-
   return cardColumnContainer;
 }
-
