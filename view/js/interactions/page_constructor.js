@@ -6,39 +6,33 @@ const id = urlParams.get('id');
 
 if (!id) {
     console.error('ID não encontrado na URL.');
+    // Pode sair da execução aqui, se necessário
 }
-
-const url = '../controller/controller_posts.php';
 
 // Exibe o esqueleto de carregamento inicial
 document.querySelectorAll('.skeleton').forEach(el => el.classList.add('active'));
 
-// Fetch do JSON
-fetch(url)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erro na solicitação: ' + response.status);
-    }
-    return response.json();
-  })
-  .then(data => {
-    const postagem = data.find(item => item.id_postagem == id);
+// Função para obter as postagens do localStorage
+function getPostsFromLocalStorage() {
+    const storedPosts = localStorage.getItem('postagens');
+    return storedPosts ? JSON.parse(storedPosts) : []; // Retorna as postagens ou um array vazio se não houver dados
+}
 
-    if (!postagem) {
-        console.error('Postagem não encontrada para o ID fornecido.');
-        return;
-    }
+// Obtemos os dados do localStorage
+const postagens = getPostsFromLocalStorage();
 
-    // Chama show_post após os dados estarem carregados
-    show_post(postagem);
+const postagem = postagens.find(item => item.id_postagem == id);
 
-    // Incrementa a visualização
-    increment_view(id);
+if (!postagem) {
+    console.error('Postagem não encontrada para o ID fornecido.');
+    // Em vez de usar return aqui, apenas não faz nada ou exibe uma mensagem.
+}
 
-    // Remove o esqueleto de carregamento após a atualização do conteúdo
-    document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('active'));
-    
-  })
-  .catch(error => {
-    console.error('Erro: ' + error);
-  });
+// Chama show_post após os dados estarem carregados
+show_post(postagem);
+
+// Incrementa a visualização
+increment_view(id);
+
+// Remove o esqueleto de carregamento após a atualização do conteúdo
+document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('active'));

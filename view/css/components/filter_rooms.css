@@ -1,40 +1,87 @@
 .filter-rooms {
   height: auto;
   max-width: 1400px;
-  margin: 30px auto;
   display: flex;
   justify-content: space-between;
-  gap: 18px;
+  gap: 10px;
   overflow-x: auto;
 }
 
 .filter-rooms .room {
-  max-width: 240px;
-  width: 240px;
+  position: relative;
+  max-width: 220px;
+  width: 200px;
   padding: 15px;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
+  font-size: 15px;
   border-radius: 50px;
   border: solid 3px rgb(194, 194, 194);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  color: rgb(41, 41, 41);
-  margin: 10px;
   transition: border-color 0.5s, background-color 0.2s;
+}
+
+.room img {
+  position: absolute;
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
+  opacity: 90%;
+  padding: 3px;
+  filter: brightness(0.7); 
+  object-fit: cover;
+}
+
+.room h3 {
+  z-index: 2;
+  color: white;
+  transition: color 0.5s; 
 }
 
 .filter-rooms .room.active {
   border-color: #00cd18;
-  background-color: #8ff39b;
+}
+
+.filter-rooms .room.active h3 {
+  color: #82ff91; 
 }
 
 .filter-rooms .room:hover {
   border-color: #00cd18;
-  background-color: #8ff39b;
   cursor: pointer;
+}
+
+.filter-rooms .room:hover h3 {
+  color: #82ff91; 
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.search-input {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding-left: 40px;
+  transition: width 0.7s ease;
+  box-shadow: 2px 2px 5px #777;
 }
 
 @media (max-width: 900px) {

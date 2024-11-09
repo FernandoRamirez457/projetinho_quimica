@@ -1,7 +1,5 @@
 import { cardRow } from "../components/cardRow.js";
 
-const url = "../controller/controller_posts.php";
-
 const baseSearchNews = document.querySelector(".result-search");
 
 const alertSearch = document.querySelector(".alertSearch");
@@ -24,44 +22,41 @@ function filterPosts(data, keyword, activeFilters) {
   });
 }
 
+// Função para obter as postagens do localStorage
+function getPostsFromLocalStorage() {
+  const storedPosts = localStorage.getItem("postagens");
+  return storedPosts ? JSON.parse(storedPosts) : []; // Retorna as postagens ou um array vazio se não houver dados
+}
+
 // Função para buscar e filtrar postagens
 function fetchAndFilterPosts(keyword) {
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erro na solicitação: " + response.status);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const filteredPosts = filterPosts(data, keyword, activeFilters);
+  const data = getPostsFromLocalStorage();
 
-      console.log(filteredPosts);
+  const filteredPosts = filterPosts(data, keyword, activeFilters);
 
-      if (filteredPosts.length === 0) {
-        alertSearch.style.display = "block";
-        baseSearchNews.innerHTML = ""; // Limpa os resultados exibidos anteriormente
-      } else {
-        alertSearch.style.display = "none";
+  console.log(filteredPosts);
 
-        postagens = filteredPosts.map((postagem) => ({
-          id: postagem.id_postagem,
-          titulo: postagem.nome_produto,
-          descricao: postagem.descricao,
-          data_publicacao:
-            postagem.data_publicacao || new Date().toISOString().split("T")[0],
-          categoria: postagem.id_categoria,
-          imagem: postagem.banner,
-          acessos: postagem.acessos,
-        }));
+  if (filteredPosts.length === 0) {
+    alertSearch.style.display = "block";
+    baseSearchNews.innerHTML = "";
+  } else {
+    alertSearch.style.display = "none";
 
-        renderSearchNews();
-        setupCardClickHandlers();
-      }
-    })
-    .catch((error) => {
-      console.error("Erro: " + error);
-    });
+    postagens = filteredPosts.map((postagem) => ({
+      id_postagem: postagem.id_postagem,
+      nome_produto: postagem.nome_produto,
+      introducao: postagem.introducao,
+      descricao: postagem.descricao,
+      data_publicacao:
+        postagem.data_publicacao || new Date().toISOString().split("T")[0],
+      id_categoria: postagem.id_categoria,
+      banner: postagem.banner,
+      acessos: postagem.acessos,
+    }));
+
+    renderSearchNews();
+    setupCardClickHandlers();
+  }
 }
 
 // Função para extrair a keyword da URL e definir como valor no input

@@ -4,48 +4,59 @@ import { cardRow } from "./components/cardRow.js";
 // URL da API para fetch
 const url = "../controller/controller_posts.php";
 let postagens = [];
-
 let dataAtual;
 
+// Função para buscar os dados da API e salvar no localStorage
 function fetchHome() {
-  // Fetch do JSON
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erro na solicitação: " + response.status);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (activeFilters.length !== 0) {
-        dataAtual = data.filter((item) => activeFilters.includes(item.id_comodo));
-      } else {
-        dataAtual = data
-      }
+  // Verifica se já temos os dados no localStorage
+  const localStorageData = localStorage.getItem("postagens");
+  if (localStorageData) {
+    postagens = JSON.parse(localStorageData);
+    renderLatestNews();
+    renderEmphasisNews();
+    setupCardClickHandlers();
+  } else {
+    // Fetch do JSON
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro na solicitação: " + response.status);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (activeFilters.length !== 0) {
+          dataAtual = data.filter((item) => activeFilters.includes(item.id_comodo));
+        } else {
+          dataAtual = data;
+        }
 
-      postagens = dataAtual.map((postagem) => ({
-        id: postagem.id_postagem,
-        titulo: postagem.nome_produto,
-        descricao: postagem.introducao,
-        data_publicacao:
-          postagem.data_publicacao || new Date().toISOString().split("T")[0], // Data fictícia se não disponível
-        categoria: postagem.id_categoria,
-        imagem: postagem.banner,
-        acessos: postagem.acessos,
-        armazenamento: postagem.armazenamento
-      }));
+        postagens = dataAtual.map((postagem) => ({
+          id_postagem: postagem.id_postagem, 
+          nome_produto: postagem.nome_produto, 
+          introducao: postagem.introducao, 
+          data_publicacao: postagem.data_publicacao || new Date().toISOString().split("T")[0], 
+          id_categoria: postagem.id_categoria, 
+          banner: postagem.banner, 
+          acessos: postagem.acessos, 
+          armazenamento: postagem.armazenamento 
+        }));
 
+        // Salva os dados no localStorage
+        localStorage.setItem("postagens", JSON.stringify(postagens));
 
-      // Renderizar as últimas notícias e as notícias em destaque
-      renderLatestNews();
-      renderEmphasisNews();
-      setupCardClickHandlers();
-    })
-    .catch((error) => {
-      console.error("Erro: " + error);
-    });
+        // Renderizar as últimas notícias e as notícias em destaque
+        renderLatestNews();
+        renderEmphasisNews();
+        setupCardClickHandlers();
+      })
+      .catch((error) => {
+        console.error("Erro: " + error);
+      });
+  }
 }
 
+// Carrega as postagens
 fetchHome();
 
 const btnFilter = document.querySelectorAll(".room");
@@ -58,18 +69,18 @@ btnFilter.forEach((btn) => {
     if (btn.classList.contains("active")) {
       btn.classList.remove("active");
       activeFilters = activeFilters.filter((id) => id !== filterId);
-  } else {
+    } else {
       btn.classList.add("active");
       activeFilters.push(filterId);
-  }
-  fetchHome();
+    }
+    fetchHome();
   });
 });
 
 // Funções para renderizar as notícias
 function renderLatestNews() {
   const baseLatestNews = document.querySelector(".cards-base-home-column");
-  baseLatestNews.innerHTML = ''
+  baseLatestNews.innerHTML = '';
   let latestNews = postagens
     .sort((a, b) => new Date(b.data_publicacao) - new Date(a.data_publicacao))
     .slice(0, 4);
@@ -82,7 +93,7 @@ function renderLatestNews() {
 
 function renderEmphasisNews() {
   const baseEmphasisNews = document.querySelector(".cards-base-home-row");
-  baseEmphasisNews.innerHTML = ''
+  baseEmphasisNews.innerHTML = '';
   let currentIndex = 0;
   const itemsPerPage = 6;
   const prevPageBtn = document.getElementById("prev-page");

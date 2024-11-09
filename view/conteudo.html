@@ -19,11 +19,13 @@
             <a href="./index.html"><img src="./img/logo_q_perigo.png" alt=""></a>
 
             <div class="functions">
+
                 <div class="search-container">
                     <label for="search-input" class="search-icon">
                         <i class="fa-solid fa-magnifying-glass" style="color: #00ab25;"></i>
                     </label>
-                    <input type="text" class="search-input" id="search-input" required />
+                    <input type="text" class="search-input" id="search-input" placeholder="Encontre o que procura..."
+                        required />
                 </div>
 
                 <!--
@@ -86,50 +88,83 @@
 
     <!--CONTEUDO PRINCIPAL-->
     <main class="content-conteudo">
-            <div class="banner-post">
-                <img src="./img/stem-cell research-amico.png" alt="Banner da matéria" class="banner-img">
-            </div>
+        <button class="return-page" onclick="returnPage()">
+            <i class="fa-solid fa-arrow-left" style="color: #000000;"></i>
+        </button>
+        <button class="back-to-top" onclick="scrollToTop()">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
 
-            <h2 class="titulo-principal skeleton">Título Principal</h1>
-    
+        <div class="banner-post">
+            <img src="./img/stem-cell research-amico.png" alt="Banner da matéria" class="banner-img">
+        </div>
+
+        <h2 class="titulo-principal skeleton">Título Principal</h1>
+
             <div class="container-conteudo">
                 <h3 class="skeleton introTitulo">Introdução:</h3>
                 <p class="intro texto skeleton">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
-                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt ex.
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex.
                 </p>
-    
+
                 <h3 class="skeleton composicao">Composição:</h3>
                 <p class="conteudo-composicao texto skeleton">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
-                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt ex.
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex.
                 </p>
-    
+
                 <h3 class="skeleton combinacao">Combinações Perigosas</h3>
                 <p class="conteudo-combinacoes texto skeleton">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
-                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt ex.
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex.
                 </p>
-    
+
                 <h3 class="skeleton manipulacao">Como manipular</h3>
                 <p class="conteudo-manipulacao texto skeleton">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
-                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt ex.
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex.
                 </p>
-    
+
                 <h3 class="skeleton armazenamento">Armazenamento:</h3>
                 <p class="conteudo-armazenamento texto skeleton">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nisi at tristique
-                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt ex.
+                    sollicitudin, nisl massa tempus erat, sit amet pulvinar lorem magna ut eros. Quisque ac tincidunt
+                    ex.
                 </p>
             </div>
-    
+
             <hr style="max-width: 1400px; margin: 30px auto;">
             <br><br>
     </main>
 
     <script src="js/interactions/navbar.js"></script>
     <script type="module" src="./js/interactions/page_constructor.js"></script>
+    <script>
+        // Função para rolar até o topo
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostrar o botão ao rolar a página
+        window.addEventListener("scroll", function () {
+            const button = document.querySelector(".back-to-top");
+            if (window.scrollY > 300) {
+                button.classList.add("show");
+            } else {
+                button.classList.remove("show");
+            }
+        });
+
+        function returnPage() {
+            window.history.back();
+        }
+
+    </script>
 
 </body>
 
